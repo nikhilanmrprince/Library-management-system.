@@ -1,0 +1,35 @@
+import java.sql.*;
+import java.util.Scanner;
+
+public class InventoryManager {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/inventory_system";
+        String user = "root"; 
+        String password = "APP@123"; 
+
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.print("Enter Product ID: ");
+            String pid = sc.nextLine();
+            System.out.print("Enter Product Name: ");
+            String name = sc.nextLine();
+            System.out.print("Enter Expected Quantity: ");
+            int expected = sc.nextInt();
+            System.out.print("Enter Actual Quantity: ");
+            int actual = sc.nextInt();
+
+            String query = "INSERT INTO inventory (product_id, product_name, expected_quantity, actual_quantity) VALUES (?, ?, ?, ?)";
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setString(1, pid);
+            stmt.setString(2, name);
+            stmt.setInt(3, expected);
+            stmt.setInt(4, actual);
+            stmt.executeUpdate();
+
+            System.out.println(" Data inserted successfully!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
