@@ -1,0 +1,283 @@
+/* --- Global Styles & Variables --- */
+:root {
+  --color-primary: #007bff;
+  --color-primary-dark: #0056b3;
+  --color-secondary: #6c757d;
+  --color-secondary-dark: #5a6268;
+  --color-success: #28a745;
+  --color-success-dark: #218838;
+  --color-danger: #dc3545;
+  --color-danger-dark: #c82333;
+  --color-warning: #ffc107;
+  --color-info: #17a2b8;
+  
+  --color-bg: #f8f9fa;
+  --color-bg-alt: #ffffff;
+  --color-text: #212529;
+  --color-text-muted: #6c757d;
+  --color-border: #dee2e6;
+  
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --radius: 8px;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  color: var(--color-text);
+  margin-top: 0;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+  width: 100%;
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.navbar h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* --- Buttons --- */
+.btn, .nav-btn {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary { background-color: var(--color-primary); }
+.btn-primary:hover { background-color: var(--color-primary-dark); }
+
+.btn-secondary { background-color: var(--color-secondary); }
+.btn-secondary:hover { background-color: var(--color-secondary-dark); }
+
+.delete-btn {
+  background-color: var(--color-danger);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.delete-btn:hover { background-color: var(--color-danger-dark); }
+
+.edit-btn {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+.edit-btn:hover { background-color: var(--color-primary-dark); }
+
+.logout-btn { background-color: var(--color-danger); }
+.logout-btn:hover { background-color: var(--color-danger-dark); }
+
+
+/* --- Forms (Cards) --- */
+.form-card {
+  background: var(--color-bg-alt);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.login-card {
+  width: 100%;
+  max-width: 450px;
+}
+.form-card h2 {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+.form-card label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.form-card input[type="text"],
+.form-card input[type="password"],
+.form-card input[type="number"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  box-sizing: border-box; /* Fixes padding issue */
+}
+.form-card button, .form-card .btn {
+  width: 100%;
+}
+.add-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: end;
+}
+.add-form input {
+  margin-bottom: 0;
+}
+.add-form button {
+  grid-column: 1 / -1; /* Button full width */
+}
+@media (min-width: 768px) {
+  .add-form {
+    grid-template-columns: 1fr 1fr 1fr auto;
+  }
+  .add-form button {
+    grid-column: auto; /* Button auto width on larger screens */
+  }
+}
+.scan-card p {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+}
+
+/* --- Tables --- */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  background: var(--color-bg-alt);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+th {
+  background-color: #f1f3f5;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+tbody tr:hover {
+  background-color: #f1f3f5;
+}
+tbody tr:last-child td {
+  border-bottom: none;
+}
+.boss-action {
+  text-align: center;
+  width: 80px;
+}
+
+/* --- Flash Messages --- */
+.flash-message {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+.flash-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.flash-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.low-stock {
+  background-color: #f8d7da !important; 
+  color: #721c24; 
+  font-weight: bold;
+}
+/* PUTHUSA: Low stock warning kaga */
+.low-stock-warning {
+  /* Light red/yellow background */
+  background-color: #fff3cd !important; 
+  color: #856404; /* Dark yellow text */
+  font-weight: 600; /* Konjam bold aakalam */
+}
+
+/* PUTHUSA: Pop-up box kulla list styling */
+#low-stock-notification-area ul {
+  margin: 0.5rem 0 0 1rem;
+  text-align: left;
+}
+#low-stock-notification-area li {
+  margin-bottom: 0.25rem;
+}
+/* PUTHUSA: Search Bar Styling (Ithu Boss/Worker rendu perukkum) */
+.search-container {
+  /* Inga edhuvum theva illa, form-card la irundhu style vandhurum */
+}
+
+#inventorySearch, #workerSearch {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-sizing: border-box; 
+}
+
+#inventorySearch:focus, #workerSearch:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+}
+/* PUTHUSA: Zero stock warning kaga */
+.zero-stock {
+  background-color: #f8d7da !important; /* Light red */
+  color: #721c24 !important; /* Dark red text */
+  font-weight: bold !important;
+}
+
+/* Ithu 'Low Stock' kaga (<= 10) */
+.low-stock-warning {
+  background-color: #fff3cd !important; 
+  color: #856404;
+  font-weight: 600;
+}
